@@ -1,0 +1,40 @@
+
+<script>
+
+
+function Tpdonuts (location, foot_traffic, percent_entering, avg_donuts_ordered) {
+  var hours = 11;
+  this.run = function() {
+    for (var i = 0; i < hours; i++) {
+      var getRandomArbitrary = function(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      this.location = location;
+      this.avg_donuts_ordered = avg_donuts_ordered;
+      this.foot_traffic = foot_traffic;
+      this.percent_entering = percent_entering;
+      var time = ["between 7 and 8 AM.", "between 8 and 9 AM.", "betweeen 9 and 10 AM.", "between 10 and 11 AM.", "between 11 AM and 12 PM.", "between 12 and 1PM.", "between 1 and 2PM.", "between 2 and 3PM.", "between 3 and 4PM.", "between 4 and 5PM.", "between 5 and 6PM."];
+      var holder = getRandomArbitrary(foot_traffic[0], foot_traffic[1]);
+      percent_entering /= 100;
+      var donuts_needed = Math.floor(percent_entering * holder * avg_donuts_ordered);
+      var report = function() {
+        console.log("The " + location + " location of Top Pot Donuts will need to be supplied with approximately " + donuts_needed + " donuts " + time[i]);
+      percent_entering *= 100;
+      }
+      report();
+    }
+  }
+}
+
+var downtown = new Tpdonuts("Downtown", [80, 220], 10, 4);
+var capitolHill = new Tpdonuts("Capitol Hill", [5, 45], 45, 2);
+var slu = new Tpdonuts("South Lake Union", [180, 250], 5, 6);
+var wedgewood = new Tpdonuts("Wedgewood", [20, 60], 20, 1.5);
+var ballard = new Tpdonuts("Ballard", [25, 175], 33, 1);
+
+downtown.run();
+capitolHill.run();
+slu.run();
+wedgewood.run();
+ballard.run();
+</script>
